@@ -53,9 +53,11 @@ export default function Home() {
         />
       ))}
 
-      <div className="badge badge-primary">Characters: {message.length}</div>
+      {splits.length === 0 && (
+        <div className="badge badge-primary">Characters: {message.length}</div>
+      )}
 
-      {message.length > SPLIT_AT && (
+      {message.length > SPLIT_AT && splits.length === 0 && (
         <button className="btn w-[50%]" onClick={() => splitMessage(message)}>
           Split
         </button>
